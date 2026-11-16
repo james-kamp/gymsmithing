@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#171512">
+<meta name="description" content="A WoW Classic-inspired strength training profession tracker.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Strength & Conditioning</title>
+<style>
+:root{color-scheme:dark;--bg:#171512;--panel:#242019;--panel2:#30291f;--line:#554630;--gold:#c9a45b;--cream:#f2e6cc;--muted:#b9aa8e;--green:#72b58a;--red:#cf8277}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#30271b 0,#171512 48rem);color:var(--cream);font:15px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+button,input,select{font:inherit}button{cursor:pointer}
+header{padding:calc(16px + env(safe-area-inset-top)) 18px 14px;border-bottom:1px solid var(--line);background:#171512eF;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+.brand{font-size:11px;letter-spacing:.16em;color:var(--gold);font-weight:800}.headrow{display:flex;align-items:center;justify-content:space-between;gap:12px}.headrow h1{font:700 22px/1.1 Georgia,serif;margin:6px 0 0}.sub{font-size:12px;color:var(--muted)}
+main{max-width:760px;margin:auto;padding:16px 14px 30px}.hero,.panel{background:linear-gradient(145deg,#2a241b,#211d17);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 8px 24px #0003}
+.hero{background:linear-gradient(130deg,#3b2d19,#211d17 65%);}.hero-top{display:flex;align-items:center;gap:13px}.avatar{width:56px;height:56px;border-radius:12px;border:1px solid #987743;background:linear-gradient(135deg,#71552a,#241d13);display:grid;place-items:center;font-size:30px}.eyebrow{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}.hero h2{font:700 24px Georgia,serif;margin:2px 0}.rank{color:#e3c98f;font-size:13px}.skillrow{display:flex;justify-content:space-between;align-items:end;margin:17px 0 7px}.skillrow strong{font:700 23px Georgia,serif}.bar{height:10px;background:#100f0d;border:1px solid #655237;border-radius:20px;overflow:hidden}.bar>i{display:block;height:100%;background:linear-gradient(90deg,#99702d,#e0bd70);width:0;transition:width .25s}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.stat{background:#17151288;border:1px solid #57452c;border-radius:9px;padding:9px}.stat b{display:block;font:700 21px Georgia,serif}.stat span{color:var(--muted);font-size:11px}
+h3{font:700 19px Georgia,serif;margin:0 0 12px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.tag{font-size:11px;border:1px solid #80683e;color:#e4c783;padding:3px 8px;border-radius:30px;white-space:nowrap}.muted{color:var(--muted)}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0}.tab,.navbtn,.secondary,.primary{border:1px solid var(--line);border-radius:9px;padding:10px;background:#201c16;color:var(--cream)}.tab.active{background:#594324;border-color:var(--gold);color:#ffe7b2}.primary{background:linear-gradient(#8a672f,#60451f);border-color:#bd9854;color:#fff2d4;font-weight:750;width:100%;padding:12px}.primary:disabled{opacity:.4;cursor:not-allowed}.secondary{background:#30291f}.exercise{display:flex;align-items:flex-start;gap:10px;padding:11px 0;border-bottom:1px solid #ffffff12}.exercise:last-child{border:0}.exercise input{width:19px;height:19px;accent-color:#c59a4b;margin:2px 0 0}.exercise label{flex:1}.exercise small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.exercise.done label{text-decoration:line-through;color:#a99d86}.progressline{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:10px 0 5px}
+.fieldgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:11px;color:var(--muted)}input,select{width:100%;min-width:0;background:#15130f;color:var(--cream);border:1px solid #665337;border-radius:8px;padding:10px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.listrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #ffffff12}.listrow:last-child{border:0}.listrow strong{display:block}.listrow small{color:var(--muted)}
+.achievement{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #ffffff12}.medal{width:36px;height:36px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;background:#191611;font-size:18px}.achievement.unlocked .medal{border-color:#b18b49;background:#46351d}.achievement small{display:block;color:var(--muted)}.locked{opacity:.55}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:10;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:#171512f2;border-top:1px solid var(--line);backdrop-filter:blur(12px)}
+.navbtn{border:0;background:transparent;color:var(--muted);font-size:11px;padding:7px 2px;display:flex;flex-direction:column;align-items:center;gap:3px}.navbtn span{font-size:19px}.navbtn.active{color:#f0cc83}
+.notice{background:#171512;border:1px solid #665337;border-radius:9px;padding:11px;color:var(--muted);font-size:12px}.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#3c301d;border:1px solid var(--gold);padding:10px 15px;border-radius:20px;z-index:20;display:none;box-shadow:0 4px 18px #0008}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.actions button{flex:1}
+@media(min-width:600px){main{padding:22px}.hero,.panel{padding:20px}.exercise{padding:13px 0}}
+</style>
+</head>
+<body>
+<header><div class="headrow"><div><div class="brand">WORLD OF WARCRAFT FOREVER · PERSONAL TRAINING</div><h1>Strength &amp; Conditioning</h1></div><div class="tag">JAMES · SOLO</div></div></header>
+<main id="app" aria-live="polite"></main>
+<nav>
+<button class="navbtn active" data-page="home"><span>⚔️</span>Character</button>
+<button class="navbtn" data-page="quests"><span>📜</span>Quest Log</button>
+<button class="navbtn" data-page="skills"><span>🔨</span>Skillbook</button>
+<button class="navbtn" data-page="achievements"><span>🏆</span>Achievements</button>
+</nav>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>
